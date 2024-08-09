@@ -15,6 +15,6 @@ class DeliveryCarrier(models.Model):
         self.ensure_one()
         res = super()._match_address(partner)
         if res and self.department_ids:
-            if partner.department_id not in self.department_ids:
+            if partner.country_department_id not in self.department_ids:
                 return False
         return res
